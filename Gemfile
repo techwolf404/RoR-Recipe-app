@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem 'postgresql'
 
+# Use Devise for authentication
+gem 'devise'
+
 # Rubocop for code linting
 gem 'rubocop', '>= 1.0', '< 2.0'
 
