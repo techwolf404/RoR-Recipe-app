@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_132516) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
-    t.integer "measurement_unit"
+    t.string "measurement_unit"
     t.integer "price"
     t.integer "quantity"
     t.integer "user_id"
@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_132516) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.time "preparation_time"
-    t.time "cooking_time"
-    t.string "description"
+    t.string "preparation_time"
+    t.string "cooking_time"
+    t.text "description"
     t.boolean "public"
     t.integer "user_id"
     t.datetime "created_at", null: false

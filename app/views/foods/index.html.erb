@@ -1,14 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Foods</h1>
-
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+<div class='d flex  justify-content end'>
+  <button class = 'btn bg-dark '> add </button>
 </div>
 
-<%= link_to "New food", new_food_path %>
+<table class=table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">food</th>
+      <th scope="col">Measurements</th>
+      <th scope="col">Units</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @foods.each do |food| %>
+    <tr>
+      <td><%=food.name %></td>
+      <td><%=food.measurement_unit%></td>
+      <td><%= food.price %></td>
+      <td>delete</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
