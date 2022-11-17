@@ -1,7 +1,5 @@
 .gradient-custom-2 {
-  /* fallback for old browsers */
   background: #fccb90;
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
 }
 
@@ -10,6 +8,7 @@
     height: 100vh !important;
   }
 }
+
 @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: 0.3rem;
