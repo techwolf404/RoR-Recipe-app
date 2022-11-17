@@ -1,20 +1,14 @@
 Rails.application.routes.draw do
-  
-  devise_scope :user do
-    get 'users/sign_out' => "devise/sessions#destroy"
-end
 
-devise_for :users
-  resources :recipe_foods
-  resources :recipes
-  resources :foods
-  resources :public_recipes
+devise_for :users, sign_out_via: [:get, :post]
 
+get '/public_recipes', to: 'recipes#public'
+resources :foods 
+  resources :users, only: [:index]
+  resources :recipes, only: [:index, :new, :show, :destroy, :create] do
+    resources :recipe_foods
+  end
 
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  root to: "public_recipes#index"
+  root to: "recipes#public"
 
 end
