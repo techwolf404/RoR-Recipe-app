@@ -1,13 +1,25 @@
-<%= render @recipe %>
 
-<div>
-  <%= link_to "Back to recipes", recipe_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-      <%= link_to "GENERATE SHOPPING LIST", shopping_list_index_path %><br>
-</div>
-
-<table class="table container rounded">
+<div class="container">
+  <div class="tx">
+    <h2><%= @recipe.name%></h2>
+  </div>
+  <div class="receipe">
+    <p>preparation time: <%= @recipe.preparation_time%></p>
+    <label class="switch">
+      <input type="checkbox">
+      <div class="slider round"></div>
+    </label>
+  </div>
+  <div class="desc">
+    <p> cooking time: <%= @recipe.cooking_time%></p>
+    <small>steps goes here</small>
+    <p><%= @recipe.description%></p>
+  </div>
+  <div class="btns">
+    <%= link_to "GENERATE SHOPPING LIST", shopping_list_index_path %><br>
+    <%= link_to "Add ingredients", new_recipe_food_path %><br>
+  </div>
+  <table class="table container rounded">
     <thead>
       <tr>
         <th scope="col">Food</th>
@@ -24,10 +36,14 @@
         <td>$<%= recipeFood.quantity * recipeFood.food.price %></td>
         <% if current_user != nil  %>
           <td class="d-flex gap-3 justify-content-end">
-            <%=button_to "Delete", recipe_foods_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete, class:"btn btn-danger"%>
+            <%=button_to "Delete", recipe_foods_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete%>
           </td>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+
+
+

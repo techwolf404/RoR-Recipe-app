@@ -1,37 +1,57 @@
-<%= form_with(model: food) do |form| %>
-  <% if food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+<section class=" gradient-form" style="background-color: #eee;">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-8 ">
+              <div class="card-body p-md-5 mx-md-12 d-flex justify-content-center align-items-end flex-column">
 
-      <ul>
-        <% food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                <div class="text-center">
+                  <h4 class="mt-1 mb-5 pb-1 text"> Add new recipe food</h4>
+                </div>
+
+               <%= form_with(model: food) do |form| %>
+                  <% if food.errors.any? %>
+                    <div style="color: red">
+                      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+                      <ul>
+                        <% food.errors.each do |error| %>
+                          <li><%= error.full_message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+                  <div>
+                    <%= form.label :name, style: "display: block" %>
+                    <%= form.text_field :name %>
+                  </div>
+
+                  <div>
+                    <%= form.label :measurement_unit, style: "display: block" %>
+                    <%= form.text_field :measurement_unit %>
+                  </div>
+
+                  <div>
+                    <%= form.label :price, style: "display: block" %>
+                    <%= form.text_field :price %>
+                  </div>
+
+                  <div>
+                    <%= form.label :quantity, style: "display: block" %>
+                    <%= form.number_field :quantity %>
+                  </div>
+
+                  <div class="pt-5">
+                    <%= form.submit %>
+                  </div>
+                <% end %>
+                 <p class="link"><%= link_to "Back to foods", foods_path %></p>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.number_field :measurement_unit %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

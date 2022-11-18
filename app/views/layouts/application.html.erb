@@ -41,15 +41,13 @@
   </div>
 </nav>
 
-  <div class="container pt-5">
+  <div class="container pt-2">
     <% if notice %>
        <p class="notice alert alert-success"><%=notice%></p>
     <% else %>
        <p class="alert "><%=alert%></p>
     <% end %>
-
     </div>
-
     <%= yield %>
   </body>
   <script
