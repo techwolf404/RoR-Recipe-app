@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Recipes</h1>
 
 <div>
@@ -8,8 +6,9 @@
    
     <div class="recipes">
     <div>
-      <p><%=recipe.name %></p>
-      <p>remove</p>
+      <p><%= link_to recipe.name, recipe %></p>
+      <span class="border-less"><%= button_to "Delete", recipe, method: :delete %></span><br>
+    
     </div>
     <div>
       <p>

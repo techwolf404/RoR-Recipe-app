@@ -1,9 +1,33 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @recipe %>
 
 <div>
   <%= link_to "Back to recipes", recipe_path %>
 
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+      <%= link_to "GENERATE SHOPPING LIST", shopping_list_index_path %><br>
 </div>
+
+<table class="table container rounded">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipeFood|%> 
+      <tr>
+        <td><%= recipeFood.food.name%></th>
+        <td><%= recipeFood.quantity%><%= recipeFood.food.measurement_unit  %></td>
+        <td>$<%= recipeFood.quantity * recipeFood.food.price %></td>
+        <% if current_user != nil  %>
+          <td class="d-flex gap-3 justify-content-end">
+            <%=button_to "Delete", recipe_foods_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete, class:"btn btn-danger"%>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
