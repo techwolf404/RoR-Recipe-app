@@ -16,7 +16,6 @@ class RecipesController < ApplicationController
       end
       @totals[pub.name] = total
     end
- 
   end
 
   def index
