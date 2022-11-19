@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '3.0.2'
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -15,6 +14,9 @@ gem 'postgresql'
 
 # Use Devise for authentication
 gem 'devise'
+
+# CanCanCan for authorization
+gem 'cancancan'
 
 # Rubocop for code linting
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -70,7 +72,6 @@ group :development do
   gem 'web-console'
 
   # bullet helps to kill N+1 queries and unused eager loading
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

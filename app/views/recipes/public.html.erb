@@ -1,22 +1,27 @@
-<h4 class="fw-bold">Public Recipes</h4>
-<div>
-  <ul class="m-0 p-0">
-    <% @recipes.each do |recipe| %>
-    <li class="card list-style-none mb-3">
-      <div class="card-body">
-        <p class="card-title fw-bold">By: <%= recipe.user.name %></p>
-        <p class="card-text fs-6 mb-4">
-          <span class="fw-bold">Description:</span><br />
-          <%= recipe.description %>
-        </p>
-        <div class="d-flex justify-content-between">
-          <span class="card-text fw-bold"
-            >Total food items: <%= recipe.recipe_foods.length || 0 %> </span
-          ><br />
-          
+<div class="container">
+  <% @public_recipes.each do |recipe| %>
+  <div class="card mb-3 style-card" style="max-width: 540px; padding-left:30px">
+    <div class="row g-0">
+      <div class="col-md-4 d-flex flex-column">
+        <%=  link_to recipe.name, recipe_path(recipe),style: "font-weight: bold; font-size: 22px; padding-top: 10px;" %> 
+        <span class="font-bold">By: <%= recipe.user.name %></span>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-text">
+            <span>Total food items: </span>
+            <span class="font-bold"><%=recipe.recipe_foods.length || 0 %></span>
+          </p>
+          <p class="card-text">
+            <span>Total Price: $</span>
+            <span class="font-bold"><%=@totals[recipe.name] %></span>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Added <%= time_ago_in_words(recipe.created_at)%></small>
+          </p>
         </div>
       </div>
-    </li>
-    <% end %>
-  </ul>
+    </div>
+  </div>
+  <% end %>
 </div>

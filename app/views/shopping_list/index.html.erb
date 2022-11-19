@@ -1,4 +1,4 @@
-<div class = "text-center">
+<div class = "text-center d-flex justify-content-center m-5">
 	<h1>Shopping Lists</h1>
 </div>
 
@@ -6,10 +6,6 @@
 	<div>
 		<h5>Amount of food items to buy: <%= @list.length %> </h5>
 		<h5 class="fw-bold">Total price: <%= @total_amount %> </h5>
-	</div>
-	<div>
-		<h5>Recipe: <%= link_to @recipes.name, recipe_path(@recipes) %></h5>
-		
 	</div>
 </div>
 
