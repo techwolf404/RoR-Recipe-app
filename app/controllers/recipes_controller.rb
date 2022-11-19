@@ -4,11 +4,23 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
 
   def public
-    @recipes = Recipe.where(public: true)
+    # @public_recipes = Recipe.where(public: true)
+    # @recipe_foods = RecipeFood.all
+
+    @totals = {}
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes.each do |pub|
+      total = 0
+      RecipeFood.where(recipe_id: pub.id).each do |rec_food|
+        total += rec_food.quantity * rec_food.food.price
+      end
+      @totals[pub.name] = total
+    end
+ 
   end
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user_id: current_user.id).order('created_at DESC')
   end
 
   # GET /recipes/1 or /recipes/1.json

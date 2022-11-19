@@ -24,10 +24,10 @@ default: &default
 development:
   <<: *default
   database: Recipe_app_development
-  # username: postgres
-  # password: postgresql
-  username: blog
-  password: blog
+  username: postgres
+  password: postgresql
+  # username: blog
+  # password: blog
   host: 127.0.0.1
   port: 5432
 
@@ -64,10 +64,10 @@ development:
 test:
   <<: *default
   database: Recipe_app_test
-  # username: postgres
-  # password: postgresql
-  username: blog
-  password: blog
+  username: postgres
+  password: postgresql
+  # username: blog
+  # password: blog
   host: 127.0.0.1
   port: 5432
 
