@@ -59,6 +59,12 @@ body {
   height: 34px;
 }
 
+.public-toggle {
+  margin-left: 340px;
+  font-size: larger;
+  font-weight: bold;
+}
+
 .switch input {
   display: none;
 }
