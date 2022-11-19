@@ -38,7 +38,7 @@
         <td>$<%= recipeFood.quantity * recipeFood.food.price %></td>
         <% if current_user != nil  %>
           <td class="d-flex gap-3 justify-content-end">
-            <%=button_to "Delete", recipe_foods_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete%>
+            <%=button_to "Delete", recipe_food_path(recipe_id: @recipe.id, id: recipeFood.id), method: :delete%>
           </td>
         <% end %>
       </tr>

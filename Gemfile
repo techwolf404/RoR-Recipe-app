@@ -16,6 +16,9 @@ gem 'postgresql'
 # Use Devise for authentication
 gem 'devise'
 
+# CanCanCan for authorization
+gem 'cancancan'
+
 # Rubocop for code linting
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -70,7 +73,7 @@ group :development do
   gem 'web-console'
 
   # bullet helps to kill N+1 queries and unused eager loading
-
+  gem 'bullet'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
