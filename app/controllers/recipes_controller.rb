@@ -4,8 +4,6 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
 
   def public
-    # @public_recipes = Recipe.where(public: true)
-    # @recipe_foods = RecipeFood.all
 
     @totals = {}
     @public_recipes = Recipe.where(public: true).order('created_at DESC')
