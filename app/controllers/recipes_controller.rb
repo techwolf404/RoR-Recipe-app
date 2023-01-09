@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
 
   def public
-
     @totals = {}
     @public_recipes = Recipe.where(public: true).order('created_at DESC')
     @public_recipes.each do |pub|
